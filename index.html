@@ -7,20 +7,38 @@
 </head>
 <body bgcolor="#000">
     <div align="center">
+        <!-- Language Selection Dropdown -->
+        <div style="padding: 10px; text-align: right; width: 100%; background-color: #222;">
+            <label for="language" style="color: white; font-family: Verdana;">Select Language:</label>
+            <select id="language" name="language" onchange="changeLanguage()" style="padding: 5px;">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+            </select>
+        </div>
+
         <nav>
             <table width="100%" bgcolor="#333" cellpadding="10">
                 <tr>
                     <td align="left">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1024px-H%26M-Logo.svg.png" alt="H&M Logo" height="40">
                     </td>
-                    <td align="center"><a href="#home"><font color="white" face="Verdana">Home</font></a></td>
-                    <td align="center"><a href="#new"><font color="white" face="Verdana">New</font></a></td>
-                    <td align="center"><a href="#sale"><font color="white" face="Verdana">Sale</font></a></td>
-                    <td align="center"><a href="#contact"><font color="white" face="Verdana">Contact</font></a></td>
-                    <td align="center"><a href="#signin"><font color="white" face="Verdana">Signin</font></a></td>
+                    <td align="center"><a id="navHome" href="#home"><font color="white" face="Verdana">Home</font></a></td>
+                    <td align="center"><a id="navNew" href="#new"><font color="white" face="Verdana">New</font></a></td>
+                    <td align="center"><a id="navSale" href="#sale"><font color="white" face="Verdana">Sale</font></a></td>
+                    <td align="center"><a id="navContact" href="#contact"><font color="white" face="Verdana">Contact</font></a></td>
+                    <td align="center"><a id="navSignin" href="#signin"><font color="white" face="Verdana">Signin</font></a></td>
                 </tr>
             </table>
         </nav>
+        
+        <header>
+            <h1><font color="red" face="Didot" size="7">H&M</font></h1>
+            <p id="welcomeText"><font color="white" face="Georgia" size="4">Discover Your Style with H&M</font></p>
+        </header>
+        
         
         <header>
             <h1><font color="red" face="Didot" size="7">H&M</font></h1>
@@ -32,7 +50,7 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/XtIB3UpdbP0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <img src="https://media.glamour.com/photos/57a889e4829583e04a823278/master/pass/katy-syme-hm.jpeg" alt="H&M Fashion" width="500">
             <br>
-                </section>
+        </section>
 
         <section>
             <p><font color="white" face="Georgia" size="5">
@@ -55,7 +73,6 @@
                 At H&M, you can find a wide range of clothing to suit any occasion. From casual wear like jeans, t-shirts, and sweaters to formal attire including suits and dresses, H&M offers fashion for every style. Their collections also feature seasonal trends, sustainable fashion lines, and exclusive designer collaborations. Whether you're looking for everyday basics or statement pieces, H&M has something for everyone.
             </font></p>
         </section>
-        
         
         <section>
             <audio controls>
@@ -81,5 +98,54 @@
             </table>
         </footer>
     </div>
+
+    <!-- JavaScript to handle language change -->
+    <script>
+        function changeLanguage() {
+            const selectedLanguage = document.getElementById("language").value;
+            alert("Language changed to: " + selectedLanguage);
+            // Implement language change functionality here
+        }
+        function changeLanguage() {
+    const selectedLanguage = document.getElementById("language").value;
+    
+    // Update navigation bar
+    document.getElementById("navHome").textContent = translations[selectedLanguage].home;
+    document.getElementById("navNew").textContent = translations[selectedLanguage].new;
+    document.getElementById("navSale").textContent = translations[selectedLanguage].sale;
+    document.getElementById("navContact").textContent = translations[selectedLanguage].contact;
+    document.getElementById("navSignin").textContent = translations[selectedLanguage].signin;
+    
+    // Update welcome text
+    document.getElementById("welcomeText").textContent = translations[selectedLanguage].welcome;
+}
+const translations = {
+    en: {
+        home: "Home",
+        new: "New",
+        sale: "Sale",
+        contact: "Contact",
+        signin: "Signin",
+        welcome: "Discover Your Style with H&M",
+    },
+    it: {
+        home: "Casa",
+        new: "Novità",
+        sale: "Saldi",
+        contact: "Contatto",
+        signin: "Accedi",
+        welcome: "Scopri il tuo stile con H&M",
+    },
+    es: {
+        home: "Inicio",
+        new: "Nuevo",
+        sale: "Venta",
+        contact: "Contacto",
+        signin: "Iniciar sesión",
+        welcome: "Descubre tu estilo con H&M",
+    }
+};
+
+    </script>
 </body>
 </html>
